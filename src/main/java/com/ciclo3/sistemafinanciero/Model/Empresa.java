@@ -8,8 +8,8 @@ import java.util.List;
 @Table(name = "Empresa")
 public class Empresa {
     @Id
-    @Column(name = "Id_Empresa")
-    private int idEmpresa;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idEmpresa;
     @Column(name = "Nombre", unique = true)
     private String nombre;
     @Column(name = "Documento", unique = true)
@@ -18,10 +18,8 @@ public class Empresa {
     private String telefono;
     @Column(name = "Direccion")
     private String direccion;
-    @Column(name = "Empleado")
     @OneToMany(mappedBy = "empresa")
     private List<Empleado> empleados;
-    @Column(name = "Transacciones")
     @OneToMany(mappedBy = "empresa")
     private List<Transaccion> transacciones;
     @Column(name = "fecha_Creacion")
@@ -32,7 +30,7 @@ public class Empresa {
     public Empresa() {
     }
 
-    public Empresa(int idEmpresa, String nombre, String documento, String telefono, String direccion,
+    public Empresa(long idEmpresa, String nombre, String documento, String telefono, String direccion,
                    List<Empleado> empleados, List<Transaccion> transacciones, Date fechaCreacion,
                    Date fechaActualizacion) {
         this.idEmpresa = idEmpresa;
@@ -46,43 +44,43 @@ public class Empresa {
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public int getIdEmpresa() {
+    public long getIdEmpresa() {        
         return idEmpresa;
     }
 
-    public void setIdEmpresa(int idEmpresa) {
+    public void setIdEmpresa(long idEmpresa) {        
         this.idEmpresa = idEmpresa;
     }
 
-    public String getNombre() {
+    public String getNombre() {        
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) {        
         this.nombre = nombre;
     }
 
-    public String getDocumento() {
+    public String getDocumento() {        
         return documento;
     }
 
-    public void setDocumento(String documento) {
+    public void setDocumento(String documento) {        
         this.documento = documento;
     }
 
-    public String getTelefono() {
+    public String getTelefono() {        
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(String telefono) {        
         this.telefono = telefono;
     }
 
-    public String getDireccion() {
+    public String getDireccion() {        
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
+    public void setDireccion(String direccion) {        
         this.direccion = direccion;
     }
 
