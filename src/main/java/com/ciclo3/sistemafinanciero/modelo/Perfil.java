@@ -1,22 +1,20 @@
 package com.ciclo3.sistemafinanciero.modelo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "Perfil")
 public class Perfil {
     @Id
-    @Column(name = "Id_Perfil")
-    private String id_Perfil;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id_Perfil;
     @Column(name = "Imagen")
     private String imagen;
     @Column(name = "Telefono")
     private String telefono;
-    @Column(name = "Usuario")
+    @OneToOne
+    @JoinColumn(name = "id_Empleado")
     private Empleado empleado;
     @Column(name = "fecha_Creacion")
     private Date fechaCreacion;
@@ -27,7 +25,7 @@ public class Perfil {
     public Perfil() {
     }
 
-    public Perfil(String id_Perfil, String imagen, String telefono, Empleado empleado, Date fechaCreacion,
+    public Perfil(long id_Perfil, String imagen, String telefono, Empleado empleado, Date fechaCreacion,
                   Date fechaActualizacion) {
         this.id_Perfil = id_Perfil;
         this.imagen = imagen;
@@ -37,11 +35,11 @@ public class Perfil {
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public String getId_Perfil() {
+    public long getId_Perfil() {
         return id_Perfil;
     }
 
-    public void setId_Perfil(String id_Perfil) {
+    public void setId_Perfil(long id_Perfil) {
         this.id_Perfil = id_Perfil;
     }
 

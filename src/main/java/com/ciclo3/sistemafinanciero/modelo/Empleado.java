@@ -1,6 +1,6 @@
 package com.ciclo3.sistemafinanciero.modelo;
 
-import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -9,11 +9,10 @@ import java.util.List;
 @Table(name = "Empleado")
 public class Empleado {
     @Id
-    @Column(name = "Id_Empleado")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idEmpleado;
     @Column(name = "Correo", unique = true)
     private String email;
-    @Column(name = "Perfil")
     @OneToOne
     @JoinColumn(name = "id_Perfil")
     private Perfil perfil;
@@ -21,10 +20,8 @@ public class Empleado {
     @Column(name = "Rol", length = 10)
     private Enum_Rol rol;
     @ManyToOne
-    @Column(name = "Empresa")
-    @JoinColumn(name = "Id_Empresa")
+    @JoinColumn(name = "id_empresa")
     private Empresa empresa;
-    @Column(name = "Transacciones")
     @OneToMany(mappedBy = "empleado")
     private List<Transaccion> transacciones;
     @Column(name = "fecha_Creacion")

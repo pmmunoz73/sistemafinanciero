@@ -7,19 +7,17 @@ import java.util.Date;
 @Table
 public class Transaccion {
     @Id
-    @Column(name = "Id_Transaccion")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_transaccion;
     @Column(name = "Concepto")
     private String concepto;
     @Column(name = "Monto")
     private float monto;
     @ManyToOne
-    @JoinColumn(name = "idEmpleado")
-    @Column(name = "Empleado")
+    @JoinColumn(name = "id_empleado")
     private Empleado empleado;
     @ManyToOne
-    @JoinColumn(name = "transacciones")
-    @Column(name = "Empresa")
+    @JoinColumn(name = "id_empresa")
     private Empresa empresa;
     @Column(name = "fecha_Creacion")
     private Date fechaCreacion;
