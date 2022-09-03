@@ -1,5 +1,8 @@
 package com.ciclo3.sistemafinanciero.Model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -23,8 +26,10 @@ public class Empresa {
     @OneToMany(mappedBy = "empresa")
     private List<Transaccion> transacciones;
     @Column(name = "fecha_Creacion")
+    @CreationTimestamp
     private Date fechaCreacion;
     @Column(name = "fecha_Actualizacion")
+    @UpdateTimestamp
     private Date fechaActualizacion;
 
     public Empresa() {

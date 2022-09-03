@@ -1,6 +1,9 @@
 package com.ciclo3.sistemafinanciero.Model;
 
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -14,19 +17,21 @@ public class Empleado {
     @Column(name = "Correo", unique = true)
     private String email;
     @OneToOne
-    @JoinColumn(name = "id_Perfil")
+    @JoinColumn(name = "Id")
     private Perfil perfil;
     @Enumerated(EnumType.STRING)
     @Column(name = "Rol", length = 10)
     private Enum_Rol rol;
     @ManyToOne
-    @JoinColumn(name = "id_empresa")
+    @JoinColumn(name = "Id")
     private Empresa empresa;
     @OneToMany(mappedBy = "empleado")
     private List<Transaccion> transacciones;
     @Column(name = "fecha_Creacion")
+    @CreationTimestamp
     private Date fechaCreacion;
     @Column(name = "fecha_Actualizacion")
+    @UpdateTimestamp
     private Date fechaActualizacion;
 
     public Empleado() {
@@ -44,11 +49,11 @@ public class Empleado {
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public long getId() {
+    public long Id() {
         return Id;
     }
 
-    public void setId(long Id) {
+    public void Id(long Id) {
         this.Id = Id;
     }
 

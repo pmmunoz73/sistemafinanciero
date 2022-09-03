@@ -1,4 +1,4 @@
-package com.example.demo.Service;
+package com.ciclo3.sistemafinanciero.Service;
 
 import com.ciclo3.sistemafinanciero.Model.Transaccion;
 import org.springframework.beans.factory.annotation.Autowired;

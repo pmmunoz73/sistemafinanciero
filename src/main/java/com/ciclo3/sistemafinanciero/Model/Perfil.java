@@ -1,5 +1,8 @@
 package com.ciclo3.sistemafinanciero.Model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,26 +11,28 @@ import java.util.Date;
 public class Perfil {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_Perfil;
+    private long Id;
     @Column(name = "Imagen")
     private String imagen;
     @Column(name = "Telefono")
     private String telefono;
     @OneToOne
-    @JoinColumn(name = "id_Empleado")
+    @JoinColumn(name = "Id")
     private Empleado empleado;
     @Column(name = "fecha_Creacion")
+    @CreationTimestamp
     private Date fechaCreacion;
     @Column(name = "fecha_Actualizacion")
+    @UpdateTimestamp
     private Date fechaActualizacion;
 
 
     public Perfil() {
     }
 
-    public Perfil(long id_Perfil, String imagen, String telefono, Empleado empleado, Date fechaCreacion,
+    public Perfil(long Id, String imagen, String telefono, Empleado empleado, Date fechaCreacion,
                   Date fechaActualizacion) {
-        this.id_Perfil = id_Perfil;
+        this.Id = Id;
         this.imagen = imagen;
         this.telefono = telefono;
         this.empleado = empleado;
@@ -35,12 +40,12 @@ public class Perfil {
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public long getId_Perfil() {
-        return id_Perfil;
+    public long getId() {
+        return Id;
     }
 
-    public void setId_Perfil(long id_Perfil) {
-        this.id_Perfil = id_Perfil;
+    public void setId(long Id) {
+        this.Id = Id;
     }
 
     public String getImagen() {
