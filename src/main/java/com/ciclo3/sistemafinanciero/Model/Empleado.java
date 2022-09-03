@@ -1,4 +1,4 @@
-package com.ciclo3.sistemafinanciero.modelo;
+package com.ciclo3.sistemafinanciero.Model;
 
 
 import javax.persistence.*;
@@ -32,9 +32,9 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(long idEmpleado, String email, Perfil perfil, Enum_Rol rol, Empresa empresa,
+    public Empleado(long Id, String email, Perfil perfil, Enum_Rol rol, Empresa empresa,
                     List<Transaccion> transacciones, Date fechaCreacion, Date fechaActualizacion) {
-        this.idEmpleado = idEmpleado;
+        this.Id = Id;
         this.email = email;
         this.perfil = perfil;
         this.rol = rol;
@@ -44,12 +44,12 @@ public class Empleado {
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public long getIdEmpleado() {
-        return idEmpleado;
+    public long getId() {
+        return Id;
     }
 
-    public void setIdEmpleado(long idEmpleado) {
-        this.idEmpleado = idEmpleado;
+    public void setId(long Id) {
+        this.Id = Id;
     }
 
     public String getEmail() {

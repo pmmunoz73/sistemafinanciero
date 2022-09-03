@@ -1,4 +1,4 @@
-package com.ciclo3.sistemafinanciero.modelo;
+package com.ciclo3.sistemafinanciero.Model;
 
 import javax.persistence.*;
 import java.util.Date;
