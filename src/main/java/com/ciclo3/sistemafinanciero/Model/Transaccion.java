@@ -8,7 +8,7 @@ import java.util.Date;
 public class Transaccion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_transaccion;
+    private long Id;
     @Column(name = "Concepto")
     private String concepto;
     @Column(name = "Monto")
