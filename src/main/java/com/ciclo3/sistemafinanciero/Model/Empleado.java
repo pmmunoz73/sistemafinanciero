@@ -10,7 +10,7 @@ import java.util.List;
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idEmpleado;
+    private long Id;
     @Column(name = "Correo", unique = true)
     private String email;
     @OneToOne

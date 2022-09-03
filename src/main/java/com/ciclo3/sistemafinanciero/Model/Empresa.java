@@ -9,7 +9,7 @@ import java.util.List;
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idEmpresa;
+    private long Id;
     @Column(name = "Nombre", unique = true)
     private String nombre;
     @Column(name = "Documento", unique = true)
