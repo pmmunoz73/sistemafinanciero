@@ -7,3 +7,4 @@ Integrantes:
 Paula Muñoz
 Estefany Martinez
 Camilo Bravo
+Giancarlo Zapata
