@@ -1,4 +1,4 @@
-package com.ciclo3.sistemafinanciero.Model;
+package com.ciclo3.sistemafinanciero.model;
 
 //import org.hibernate.annotations.CreationTimestamp;
 //import org.hibernate.annotations.UpdateTimestamp;

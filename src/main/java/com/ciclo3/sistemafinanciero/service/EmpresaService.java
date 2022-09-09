@@ -1,7 +1,7 @@
-package com.ciclo3.sistemafinanciero.Service;
+package com.ciclo3.sistemafinanciero.service;
 
 
-import com.ciclo3.sistemafinanciero.Model.Empresa;
+import com.ciclo3.sistemafinanciero.model.Empresa;
 import com.ciclo3.sistemafinanciero.repositories.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

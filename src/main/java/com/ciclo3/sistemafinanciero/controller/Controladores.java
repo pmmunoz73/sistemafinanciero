@@ -1,7 +1,7 @@
 package com.ciclo3.sistemafinanciero.controller;
 
-import com.ciclo3.sistemafinanciero.Model.Empresa;
-import com.ciclo3.sistemafinanciero.Service.EmpresaService;
+import com.ciclo3.sistemafinanciero.model.Empresa;
+import com.ciclo3.sistemafinanciero.service.EmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
