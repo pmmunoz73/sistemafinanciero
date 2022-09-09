@@ -1,108 +1,98 @@
 package com.ciclo3.sistemafinanciero.Model;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+//import org.hibernate.annotations.CreationTimestamp;
+//import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "Empresa")
+@Table(name = "empresa")
 public class Empresa {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
-    @Column(name = "Nombre", unique = true)
+    @Column(name = "id_empresa")
+    private Long idEmpresa;
+
+    @Column (name = "nombre", unique = true)
     private String nombre;
-    @Column(name = "Documento", unique = true)
-    private String documento;
-    @Column(name = "Telefono")
-    private String telefono;
-    @Column(name = "Direccion")
+
+    @Column (name = "nit", unique = true)
+    private String nit;
+
+    @Column (name = "direccion")
     private String direccion;
+
+    @Column (name = "telefono")
+    private String telefono;
+
+    @Column(name = "fecha_creacion")
+    private Date fechaCreacion;
+
+    @Column(name = "fecha_actualizacion")
+    private Date fechaActualizacion;
+
     @OneToMany(mappedBy = "empresa")
-    private List<Empleado> empleados;
+    private List<Empleado> empleado;
+
     @OneToMany(mappedBy = "empresa")
     private List<Transaccion> transacciones;
-    @Column(name = "fecha_Creacion")
-    @CreationTimestamp
-    private Date fechaCreacion;
-    @Column(name = "fecha_Actualizacion")
-    @UpdateTimestamp
-    private Date fechaActualizacion;
 
     public Empresa() {
     }
 
-    public Empresa(long Id, String nombre, String documento, String telefono, String direccion,
-                   List<Empleado> empleados, List<Transaccion> transacciones, Date fechaCreacion,
-                   Date fechaActualizacion) {
-        this.Id = Id;
+    public Empresa(Long idEmpresa, String nombre, String nit, String direccion, String telefono, Date fechaCreacion, Date fechaActualizacion, List<Empleado> empleado, List<Transaccion> transacciones) {
+        this.idEmpresa = this.idEmpresa;
         this.nombre = nombre;
-        this.documento = documento;
-        this.telefono = telefono;
+        this.nit = nit;
         this.direccion = direccion;
-        this.empleados = empleados;
-        this.transacciones = transacciones;
+        this.telefono = telefono;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
+        this.empleado = empleado;
+        this.transacciones = transacciones;
     }
 
-    public long getId() {
-        return Id;
+    public Long getIdEmpresa() {
+        return idEmpresa;
     }
 
-    public void setId(long Id) {
-        this.Id = Id;
+    public void setIdEmpresa(Long id) {
+        this.idEmpresa = this.idEmpresa;
     }
 
-    public String getNombre() {        
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {        
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getDocumento() {        
-        return documento;
+    public String getNit() {
+        return nit;
     }
 
-    public void setDocumento(String documento) {        
-        this.documento = documento;
+    public void setNit(String nit) {
+        this.nit = nit;
     }
 
-    public String getTelefono() {        
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {        
-        this.telefono = telefono;
-    }
-
-    public String getDireccion() {        
+    public String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {        
+    public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
-    public List<Empleado> getEmpleados() {
-        return empleados;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setEmpleados(List<Empleado> empleados) {
-        this.empleados = empleados;
-    }
-
-    public List<Transaccion> getTransacciones() {
-        return transacciones;
-    }
-
-    public void setTransacciones(List<Transaccion> transacciones) {
-        this.transacciones = transacciones;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public Date getFechaCreacion() {
@@ -119,5 +109,21 @@ public class Empresa {
 
     public void setFechaActualizacion(Date fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public List<Empleado> getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(List<Empleado> empleado) {
+        this.empleado = empleado;
+    }
+
+    public List<Transaccion> getTransacciones() {
+        return transacciones;
+    }
+
+    public void setTransacciones(List<Transaccion> transacciones) {
+        this.transacciones = transacciones;
     }
 }

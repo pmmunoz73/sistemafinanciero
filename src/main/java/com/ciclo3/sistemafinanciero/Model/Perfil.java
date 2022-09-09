@@ -7,45 +7,46 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Perfil")
+@Table(name = "perfil")
 public class Perfil {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
-    @Column(name = "Imagen")
+    @Column(name = "id_perfil")
+    private String idPerfil;
+
+    @Column(name = "imagen")
     private String imagen;
-    @Column(name = "Telefono")
+
+    @Column(name = "telefono")
     private String telefono;
-    @OneToOne
-    @JoinColumn(name = "Id")
-    private Empleado empleado;
-    @Column(name = "fecha_Creacion")
-    @CreationTimestamp
+
+    @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-    @Column(name = "fecha_Actualizacion")
-    @UpdateTimestamp
+
+    @Column(name = "fecha_actualizacion")
     private Date fechaActualizacion;
 
+    @OneToOne(mappedBy = "perfil")
+    private Empleado empleado;
 
     public Perfil() {
     }
 
-    public Perfil(long Id, String imagen, String telefono, Empleado empleado, Date fechaCreacion,
-                  Date fechaActualizacion) {
-        this.Id = Id;
+    public Perfil(String idPerfil, String imagen, String telefono, Date fechaCreacion, Date fechaActualizacion, Empleado empleado) {
+        this.idPerfil = idPerfil;
         this.imagen = imagen;
         this.telefono = telefono;
-        this.empleado = empleado;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
+        this.empleado = empleado;
     }
 
-    public long getId() {
-        return Id;
+    public String getIdPerfil() {
+        return idPerfil;
     }
 
-    public void setId(long Id) {
-        this.Id = Id;
+    public void setIdPerfil(String idPerfil) {
+        this.idPerfil = idPerfil;
     }
 
     public String getImagen() {
@@ -64,14 +65,6 @@ public class Perfil {
         this.telefono = telefono;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }
-
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
@@ -86,5 +79,13 @@ public class Perfil {
 
     public void setFechaActualizacion(Date fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 }

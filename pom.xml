@@ -8,33 +8,32 @@
         <version>2.7.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ciclo3</groupId>
-    <artifactId>sistemafinanciero</artifactId>
+    <groupId>com.udea</groupId>
+    <artifactId>ciclo3</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sistemafinanciero</name>
-    <description>sistemafinanciero</description>
+    <name>ciclo3</name>
+    <description>Demo project for Spring Boot</description>
     <properties>
-<<<<<<< HEAD
-        <java.version>11</java.version>
-=======
         <java.version>17</java.version>
->>>>>>> 5076ee61224baf44d737025631361a646b426e5e
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-<<<<<<< HEAD
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-=======
->>>>>>> 5076ee61224baf44d737025631361a646b426e5e
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-core</artifactId>
         </dependency>
 
         <dependency>
@@ -44,14 +43,11 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-<<<<<<< HEAD
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-=======
->>>>>>> 5076ee61224baf44d737025631361a646b426e5e
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -66,5 +62,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

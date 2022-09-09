@@ -4,46 +4,76 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name = "transaccion")
 public class Transaccion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
-    @Column(name = "Concepto")
-    private String concepto;
-    @Column(name = "Monto")
+    @Column(name = "id_transaccion")
+    private Long idTransaccion;
+
+    @Column(name = "id_empresa")
+    private Long idEmpresa;
+
+    @Column(name = "id_empleado")
+    private Long idEmpleado;
+
+    @Column(name = "concepto")
+    private  String concepto;
+
+    @Column(name = "monto")
     private float monto;
+
+    @Column(name = "fecha_creacion")
+    Date fechaCreacion;
+
+    @Column(name = "fecha_actualizacion")
+    Date fechaActualizacion;
+
     @ManyToOne
-    @JoinColumn(name = "id_empleado")
-    private Empleado empleado;
-    @ManyToOne
-    @JoinColumn(name = "id_empresa")
+    @JoinColumn(name = "id_empresa", insertable = false, updatable = false)
     private Empresa empresa;
-    @Column(name = "fecha_Creacion")
-    private Date fechaCreacion;
-    @Column(name = "fecha_Actualizacion")
-    private Date fechaActualizacion;
+
+    @ManyToOne
+    @JoinColumn(name = "id_empleado", insertable = false, updatable = false)
+    private Empleado empleado;
 
     public Transaccion() {
     }
 
-    public Transaccion(long Id, String concepto, float monto, Empleado empleado, Empresa empresa,
-                       Date fechaCreacion, Date fechaActualizacion) {
-        this.Id = Id;
+    public Transaccion(Long idTransaccion, Long idEmpresa, Long idEmpleado, String concepto, float monto, Date fechaCreacion, Date fechaActualizacion, Empresa empresa, Empleado empleado) {
+        this.idTransaccion = idTransaccion;
+        this.idEmpresa = idEmpresa;
+        this.idEmpleado = idEmpleado;
         this.concepto = concepto;
         this.monto = monto;
-        this.empleado = empleado;
-        this.empresa = empresa;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
+        this.empresa = empresa;
+        this.empleado = empleado;
     }
 
-    public long getId() {
-        return Id;
+    public Long getIdTransaccion() {
+        return idTransaccion;
     }
 
-    public void setId(long Id) {
-        this.Id = Id;
+    public void setIdTransaccion(Long idTransaccion) {
+        this.idTransaccion = idTransaccion;
+    }
+
+    public Long getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Long idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
+    public Long getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(Long idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getConcepto() {
@@ -62,22 +92,6 @@ public class Transaccion {
         this.monto = monto;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
@@ -92,5 +106,21 @@ public class Transaccion {
 
     public void setFechaActualizacion(Date fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 }
