@@ -14,22 +14,21 @@
     <name>sistemafinanciero</name>
     <description>sistemafinanciero</description>
     <properties>
-<<<<<<< HEAD
+
         <java.version>11</java.version>
-=======
+
         <java.version>17</java.version>
->>>>>>> 5076ee61224baf44d737025631361a646b426e5e
+
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-<<<<<<< HEAD
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-=======
->>>>>>> 5076ee61224baf44d737025631361a646b426e5e
+
+
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
@@ -44,14 +43,13 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-<<<<<<< HEAD
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-=======
->>>>>>> 5076ee61224baf44d737025631361a646b426e5e
+
+
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
