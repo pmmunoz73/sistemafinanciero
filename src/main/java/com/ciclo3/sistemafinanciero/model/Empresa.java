@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -23,8 +24,8 @@ public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "id_Empresa")
+    private Integer id_Empresa;
 
     @Column (name = "nombre", unique = true)
     private String nombre;
@@ -46,11 +47,10 @@ public class Empresa {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date fechaActualizacion;
 
-    /*@OneToMany(mappedBy = "empresa")
-    private List<Empleado> empleado;*/
+   @OneToMany(mappedBy = "empresa")
+    private List<Empleado> empleado;
 
-   /* @OneToMany(mappedBy = "empresa")
-    private List<Transaccion> transacciones;*/
-
+    @OneToMany(mappedBy = "empresa")
+    private List<MovimientoDinero> movimientoDinero;
 
 }

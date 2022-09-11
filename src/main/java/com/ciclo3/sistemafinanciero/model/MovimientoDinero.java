@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,14 +19,14 @@ import java.util.Date;
 public class MovimientoDinero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_transaccion")
-    private Long idTransaccion;
+    @Column(name = "id_Movimiento")
+    private Integer id_Movimiento;
 
-    @Column(name = "id_empresa")
-    private Long idEmpresa;
+    @Column(name = "id_Empresa")
+    private Integer id_Empresa;
 
-    @Column(name = "id_empleado")
-    private Long idEmpleado;
+    @Column(name = "id_Empleado")
+    private Integer id_Empleado;
 
     @Column(name = "concepto")
     private  String concepto;
@@ -33,11 +34,14 @@ public class MovimientoDinero {
     @Column(name = "monto")
     private float monto;
 
+
     @Column(name = "fecha_creacion")
-    Date fechaCreacion;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date fechaCreacion;
 
     @Column(name = "fecha_actualizacion")
-    Date fechaActualizacion;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date fechaActualizacion;
 
     @ManyToOne
     @JoinColumn(name = "id_empresa", insertable = false, updatable = false)
