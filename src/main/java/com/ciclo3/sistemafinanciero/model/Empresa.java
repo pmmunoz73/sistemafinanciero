@@ -23,8 +23,8 @@ public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "id_Empresa")
+    private Integer id_Empresa;
 
     @Column (name = "nombre", unique = true)
     private String nombre;
