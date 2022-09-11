@@ -1,55 +1,72 @@
 package com.ciclo3.sistemafinanciero.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString
-
-@Table(name = "movimiento_dinero")
+@Table(name="Movimientos")
 public class MovimientoDinero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_Movimiento")
-    private Integer id_Movimiento;
-
-    @Column(name = "id_Empresa")
-    private Integer id_Empresa;
-
-    @Column(name = "id_Empleado")
-    private Integer id_Empleado;
-
-    @Column(name = "concepto")
-    private  String concepto;
-
-    @Column(name = "monto")
-    private float monto;
-
-
-    @Column(name = "fecha_creacion")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date fechaCreacion;
-
-    @Column(name = "fecha_actualizacion")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date fechaActualizacion;
-
+    private int id;
+    private long monto;
+    private String concepto;
     @ManyToOne
-    @JoinColumn(name = "id_empresa", insertable = false, updatable = false)
-    private Empresa empresa;
+    @JoinColumn(name = "empleado_id")
+    private Empleado usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "id_empleado", insertable = false, updatable = false)
-    private Empleado empleado;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date fecha;
 
+    public MovimientoDinero() {
+    }
 
+    public MovimientoDinero(long monto, String concepto, Empleado empleado, Date fecha) {
+        this.monto = monto;
+        this.concepto = concepto;
+        this.usuario = empleado;
+        this.fecha=fecha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getMonto() {
+        return monto;
+    }
+
+    public void setMonto(long monto) {
+        this.monto = monto;
+    }
+
+    public String getConcepto() {
+        return concepto;
+    }
+
+    public void setConcepto(String concepto) {
+        this.concepto = concepto;
+    }
+
+    public Empleado getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Empleado empleado) {
+        this.usuario = empleado;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
 }

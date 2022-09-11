@@ -1,56 +1,65 @@
 package com.ciclo3.sistemafinanciero.model;
 
-//import org.hibernate.annotations.CreationTimestamp;
-//import org.hibernate.annotations.UpdateTimestamp;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString
-
-@Table(name = "empresa")
+@Table(name="Empresa")
 public class Empresa {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_Empresa")
-    private Integer id_Empresa;
-
-    @Column (name = "nombre", unique = true)
+    private int id;
     private String nombre;
-
-    @Column (name = "nit", unique = true)
-    private String nit;
-
-    @Column (name = "direccion")
     private String direccion;
-
-    @Column (name = "telefono")
     private String telefono;
+    private String NIT;
 
-    @Column(name = "fecha_creacion")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date fechaCreacion;
+    public Empresa() {
+    }
 
-    @Column(name = "fecha_actualizacion")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date fechaActualizacion;
+    public Empresa(String nombre, String direccion, String telefono, String NIT) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.NIT = NIT;
+    }
 
-   @OneToMany(mappedBy = "empresa")
-    private List<Empleado> empleado;
+    public int getId() {
+        return id;
+    }
 
-    @OneToMany(mappedBy = "empresa")
-    private List<MovimientoDinero> movimientoDinero;
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getNIT() {
+        return NIT;
+    }
+
+    public void setNIT(String NIT) {
+        this.NIT = NIT;
+    }
 }

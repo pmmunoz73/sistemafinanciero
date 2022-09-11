@@ -1,64 +1,87 @@
 package com.ciclo3.sistemafinanciero.model;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-@ToString
-
-@Table(name = "empleado")
+@Table(name="Empleado")
 public class Empleado {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_Empleado")
-    private Integer id_Empleado;
-
-   @Column(name = "id_Empresa")
-    private Integer id_Empresa;
-
-    //@Column(name = "id_perfil")
-    //private String idPerfil;
-
-    @Column (name = "nombre")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
     private String nombre;
-
-    @Column(name = "email", unique = true)
-    private String email;
-
-    @Column(name = "rol", nullable = false, length = 20)
-    private String rol;
-
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @Column(name = "fecha_creacion")
-    private Date fechaCreacion;
-
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @Column(name = "fecha_actualizacion")
-    private Date fechaActualizacion;
-
+    private String correo;
     @ManyToOne
-    @JoinColumn(name = "id_Empresa", insertable = false, updatable = false)
+    @JoinColumn(name = "empresa_id")
     private Empresa empresa;
+    private String rol;
+    private String password;
+    private Boolean estado;
 
-    @OneToMany(mappedBy = "empleado")
-    private List<MovimientoDinero> movimientoDinero;
+    public Empleado() {
+    }
 
-    //@OneToOne
-    //@JoinColumn(name = "id_perfil", insertable = false, updatable = false)
-    //private Perfil perfil;
+    public Empleado(String nombre, String correo, Empresa empresa, String rol, String password, Boolean estado) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.empresa = empresa;
+        this.rol = rol;
+        this.password= password;
+        this.estado=estado;
+    }
 
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
 
 }
-
-

@@ -12,37 +12,40 @@ import java.util.Optional;
 @Service
 public class EmpleadoService {
 
-   @Autowired
+    @Autowired
     EmpleadoRepository empleadoRepository;
 
-    //Metodo que retorna lista de empleados con metodos heredados del jpa Repository
-    public List<Empleado> getAllEmpleado() {
-        List<Empleado> empleadoList = new ArrayList<>();
-        empleadoRepository.findAll().forEach(Empleado -> empleadoList.add(Empleado)); //Recorre iterable que regresa metodo finAll y lo guarda en lista empresa
+    //Metodo para ver todos los empleados registrados
+    public List<Empleado> getAllEmpleado(){
+        List<Empleado> empleadoList= new ArrayList<>();
+        empleadoRepository.findAll().forEach(empleado -> empleadoList.add(empleado));
         return empleadoList;
     }
 
-    public ArrayList<Empleado> obtenerPorEmpresa(Integer id){
-        return empleadoRepository.findByEmpresa(id);
-    }
-
-    //Metodo que trae objeto tipo Empleado por id
-    public Optional<Empleado> getEmpleadoByID(Integer id){
+    //Metodo para buscar empleados por ID
+    public Optional<Empleado> getEmpleadoById(Integer id){ //Existe optional y asi se podria usar
 
         return empleadoRepository.findById(id);
     }
 
-    //Metodo que guarda o actualiza objeto tipo empleado
-    public Empleado saveOrUpdateEmpleado(Empleado empleado){
-        return empleadoRepository.save(empleado);
-
+    //Metodo para buscar empleados por empresa
+    public ArrayList<Empleado> obtenerPorEmpresa(Integer id){
+        return empleadoRepository.findByEmpresa(id);
     }
 
-    //Metodo que elimina objeto tipo empleado
+    //Metodo para guardar o actualizar registros en Empleados
+    public boolean saveOrUpdateEmpleado(Empleado empl){
+        Empleado emp=empleadoRepository.save(empl);
+        if (empleadoRepository.findById(emp.getId())!=null){
+            return true;
+        }
+        return false;
+    }
+
+    //Metodo para eliminar un registro de Empleado por Id
     public boolean deleteEmpleado(Integer id){
         empleadoRepository.deleteById(id);
-
-        if (this.empleadoRepository.findById(id).isPresent()){
+        if(this.empleadoRepository.findById(id).isPresent()){
             return false;
         }
         return true;
