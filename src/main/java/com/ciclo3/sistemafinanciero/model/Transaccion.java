@@ -1,9 +1,19 @@
 package com.ciclo3.sistemafinanciero.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
+
 @Table(name = "transaccion")
 public class Transaccion {
     @Id
@@ -37,90 +47,5 @@ public class Transaccion {
     @JoinColumn(name = "id_empleado", insertable = false, updatable = false)
     private Empleado empleado;
 
-    public Transaccion() {
-    }
 
-    public Transaccion(Long idTransaccion, Long idEmpresa, Long idEmpleado, String concepto, float monto, Date fechaCreacion, Date fechaActualizacion, Empresa empresa, Empleado empleado) {
-        this.idTransaccion = idTransaccion;
-        this.idEmpresa = idEmpresa;
-        this.idEmpleado = idEmpleado;
-        this.concepto = concepto;
-        this.monto = monto;
-        this.fechaCreacion = fechaCreacion;
-        this.fechaActualizacion = fechaActualizacion;
-        this.empresa = empresa;
-        this.empleado = empleado;
-    }
-
-    public Long getIdTransaccion() {
-        return idTransaccion;
-    }
-
-    public void setIdTransaccion(Long idTransaccion) {
-        this.idTransaccion = idTransaccion;
-    }
-
-    public Long getIdEmpresa() {
-        return idEmpresa;
-    }
-
-    public void setIdEmpresa(Long idEmpresa) {
-        this.idEmpresa = idEmpresa;
-    }
-
-    public Long getIdEmpleado() {
-        return idEmpleado;
-    }
-
-    public void setIdEmpleado(Long idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
-
-    public String getConcepto() {
-        return concepto;
-    }
-
-    public void setConcepto(String concepto) {
-        this.concepto = concepto;
-    }
-
-    public float getMonto() {
-        return monto;
-    }
-
-    public void setMonto(float monto) {
-        this.monto = monto;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public Date getFechaActualizacion() {
-        return fechaActualizacion;
-    }
-
-    public void setFechaActualizacion(Date fechaActualizacion) {
-        this.fechaActualizacion = fechaActualizacion;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-
-    public Empleado getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }
 }
