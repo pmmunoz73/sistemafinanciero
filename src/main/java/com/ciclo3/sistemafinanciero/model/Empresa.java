@@ -3,18 +3,28 @@ package com.ciclo3.sistemafinanciero.model;
 //import org.hibernate.annotations.CreationTimestamp;
 //import org.hibernate.annotations.UpdateTimestamp;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
+
 @Table(name = "empresa")
 public class Empresa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_empresa")
-    private Long idEmpresa;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
 
     @Column (name = "nombre", unique = true)
     private String nombre;
@@ -29,101 +39,18 @@ public class Empresa {
     private String telefono;
 
     @Column(name = "fecha_creacion")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date fechaCreacion;
 
     @Column(name = "fecha_actualizacion")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date fechaActualizacion;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<Empleado> empleado;
+    /*@OneToMany(mappedBy = "empresa")
+    private List<Empleado> empleado;*/
 
-    @OneToMany(mappedBy = "empresa")
-    private List<Transaccion> transacciones;
+   /* @OneToMany(mappedBy = "empresa")
+    private List<Transaccion> transacciones;*/
 
-    public Empresa() {
-    }
 
-    public Empresa(Long idEmpresa, String nombre, String nit, String direccion, String telefono, Date fechaCreacion, Date fechaActualizacion, List<Empleado> empleado, List<Transaccion> transacciones) {
-        this.idEmpresa = this.idEmpresa;
-        this.nombre = nombre;
-        this.nit = nit;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.fechaCreacion = fechaCreacion;
-        this.fechaActualizacion = fechaActualizacion;
-        this.empleado = empleado;
-        this.transacciones = transacciones;
-    }
-
-    public Long getIdEmpresa() {
-        return idEmpresa;
-    }
-
-    public void setIdEmpresa(Long id) {
-        this.idEmpresa = this.idEmpresa;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getNit() {
-        return nit;
-    }
-
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public Date getFechaActualizacion() {
-        return fechaActualizacion;
-    }
-
-    public void setFechaActualizacion(Date fechaActualizacion) {
-        this.fechaActualizacion = fechaActualizacion;
-    }
-
-    public List<Empleado> getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(List<Empleado> empleado) {
-        this.empleado = empleado;
-    }
-
-    public List<Transaccion> getTransacciones() {
-        return transacciones;
-    }
-
-    public void setTransacciones(List<Transaccion> transacciones) {
-        this.transacciones = transacciones;
-    }
 }

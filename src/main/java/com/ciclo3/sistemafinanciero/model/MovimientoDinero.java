@@ -14,10 +14,10 @@ import java.util.Date;
 @Data
 @ToString
 
-@Table(name = "movimiento_diner")
-public class Transaccion {
+@Table(name = "movimiento_dinero")
+public class MovimientoDinero {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_transaccion")
     private Long idTransaccion;
 

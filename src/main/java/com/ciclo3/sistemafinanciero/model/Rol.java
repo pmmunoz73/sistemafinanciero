@@ -1,5 +1,5 @@
 package com.ciclo3.sistemafinanciero.model;
 
-public enum EnumRole {
+public enum Rol {
     Admin, Operario
 }
