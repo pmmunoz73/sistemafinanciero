@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Inicio</title>
+</head>
+<body>
+<!-- Inicio de contenedor principal -->
+<div class="text-center">
+    <!-- Inicio de fila principal -->
+    <div class="row">
+        <!-- Inicio de panel de la izquierda -->
+        <div class="col-3 align-items-center" style="background-color:#aaa; height: 100vh">
+            <!--espacio para logo -->
+            <div class="text-center pt-5 pb-5" style="height: 300px"><img src="\sistemafinanciero1\src\main\resources\img/logo.png" class="rounded" alt="logo"></div>
+            <!--espacio para botones del panel izquierdo-->
+            <div class="text-center ps-3 pb-3 d-grid gap-2"><a th:href="@{/verMoviminetos}" class="btn btn-dark">Ingresos y Egresos</a></div>
+            <div class="text-center ps-3 pb-3 d-grid gap-2"><a th:href="@{/verEmpleados}" class="btn btn-dark">Usuarios</a></div>
+            <div class="text-center ps-3 pb-5 d-grid gap-2"><a th:href="@{/verEmpresas}" class="btn btn-dark">Empresas</a></div>
+            <div class="text-center ps-3 pt-5 pb-3 d-grid gap-2"><a th:href="@{/logout}" class="btn btn-danger">Cerrar sesión</a></div>
+        </div>
+        <!-- Final de panel de la izquierda -->
+        <!-- Inicio espacio de la derecha -->
+        <div class="col-9 align-items-center" style="background-color:#ccc; height: 100vh">
+            <h1 class="pt-5 pb-4">Categorias</h1>
+            <!-- Inicio de las categorias -->
+            <div class="row row-cols-1 row-cols-md-3 g-2 pt-5">
+                <div class="col">
+                    <div class="card">
+                        <div class="text-center"><img src="\sistemafinanciero1\src\main\resources\img/finanzas300.jpg" class="rounded" alt="logo"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sistema de gestión de ingreos y gastos</h5>
+                            <br>
+                            <a th:href="@{/verMoviminetos}" class="btn btn-dark">Entrar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin categoria 1-->
+                <div class="col">
+                    <div class="card">
+                        <div class="text-center"><img src="\sistemafinanciero1\src\main\resources\img/finanzas300.jpg" class="rounded" alt="logo"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sistema de gestión de usuarios</h5>
+                            <br>
+                            <br>
+                            <a th:href="@{/verEmpleados}" class="btn btn-dark">Entrar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin categoria 2-->
+                <div class="col">
+                    <div class="card">
+                        <div class="text-center"><img src="\sistemafinanciero1\src\main\resources\img/finanzas300.jpg" class="rounded" alt="logo"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sistema de gestión de empresas</h5>
+                            <br>
+                            <br>
+                            <a th:href="@{/verEmpresas}" class="btn btn-dark">Entrar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin categoria 3-->
+            </div>
+            <!-- Inicio espacio de las categorias -->
+        </div>
+        <!-- Fin de espacio de la derecha -->
+    </div>
+    <!-- Cierre de fila principal -->
+</div>
+<!-- Cierre de contenedor principal -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

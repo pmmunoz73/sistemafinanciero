@@ -35,6 +35,10 @@ public class ControllerFull {
     MovimientoRepository movimientosRepositor;
 
     //EMPRESAS
+    @GetMapping ({"/index"})
+    public String inicio(Model model, @ModelAttribute("mensaje") String mensaje){
+        return "index"; //Llamamos al HTML
+    }
     @GetMapping ({"/","/VerEmpresas"})
     public String viewEmpresas(Model model, @ModelAttribute("mensaje") String mensaje){
         List<Empresa> listaEmpresas=empresaService.getAllEmpresas();
