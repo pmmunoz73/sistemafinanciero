@@ -40,8 +40,10 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/VerMovimiento/**").hasAnyRole("ADMIN","USER")
                 .antMatchers("/AgregarMovimiento/**").hasAnyRole("ADMIN","USER")
                 .antMatchers("/EditarMovimiento/**").hasAnyRole("ADMIN","USER")
-                .and().formLogin().successHandler(customSuccessHandler)
+                //.and().formLogin().successHandler(customSuccessHandler)
+                //.defaultSuccessUrl(customSuccessHandler)
+                .and().formLogin().loginPage("/login").successHandler(customSuccessHandler)
                 .and().exceptionHandling().accessDeniedPage("/Denegado")
-                .and().logout().permitAll();
+                .and().logout();
     }
 }

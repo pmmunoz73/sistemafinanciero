@@ -34,6 +34,12 @@ public class ControllerFull {
     @Autowired
     MovimientoRepository movimientosRepositor;
 
+    @GetMapping({"/","/login"})
+    public String login() {
+        return "login";
+    }
+
+
     //EMPRESAS
     @GetMapping ({"/index"})
     public String inicio(Model model, @ModelAttribute("mensaje") String mensaje){
