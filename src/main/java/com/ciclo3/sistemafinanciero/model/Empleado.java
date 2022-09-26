@@ -1,5 +1,9 @@
 package com.ciclo3.sistemafinanciero.model;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="Empleado")
@@ -15,17 +19,25 @@ public class Empleado {
     private String rol;
     private String password;
     private Boolean estado;
+    @CreationTimestamp
+    @Column(name = "fecha_creacion")
+    private LocalDate fechaCreacion;
+    @UpdateTimestamp
+    @Column(name = "fecha_actualizacion")
+    private LocalDate fechaActualizacion;
 
     public Empleado() {
     }
 
-    public Empleado(String nombre, String correo, Empresa empresa, String rol, String password, Boolean estado) {
+    public Empleado(String nombre, String correo, Empresa empresa, String rol, String password, Boolean estado, LocalDate fechaCreacion, LocalDate fechaActualizacion) {
         this.nombre = nombre;
         this.correo = correo;
         this.empresa = empresa;
         this.rol = rol;
-        this.password= password;
-        this.estado=estado;
+        this.password = password;
+        this.estado = estado;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
     }
 
     public Boolean getEstado() {
@@ -84,4 +96,19 @@ public class Empleado {
         this.empresa = empresa;
     }
 
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public LocalDate getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(LocalDate fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
+    }
 }

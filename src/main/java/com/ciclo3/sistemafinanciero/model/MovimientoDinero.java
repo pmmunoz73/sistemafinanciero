@@ -1,9 +1,11 @@
 package com.ciclo3.sistemafinanciero.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="Movimientos")
@@ -16,18 +18,22 @@ public class MovimientoDinero {
     @ManyToOne
     @JoinColumn(name = "empleado_id")
     private Empleado usuario;
-
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date fecha;
+    @CreationTimestamp
+    @Column(name = "fecha_creacion")
+    private LocalDate fechaCreacion;
+    @UpdateTimestamp
+    @Column(name = "fecha_actualizacion")
+    private LocalDate fechaActualizacion;
 
     public MovimientoDinero() {
     }
 
-    public MovimientoDinero(long monto, String concepto, Empleado empleado, Date fecha) {
+    public MovimientoDinero(long monto, String concepto, Empleado empleado, LocalDate fechaCreacion, LocalDate fechaActualizacion) {
         this.monto = monto;
         this.concepto = concepto;
         this.usuario = empleado;
-        this.fecha=fecha;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
     }
 
     public int getId() {
@@ -62,11 +68,19 @@ public class MovimientoDinero {
         this.usuario = empleado;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFechaCreacion(LocalDate fecha) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public LocalDate getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(LocalDate fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
     }
 }

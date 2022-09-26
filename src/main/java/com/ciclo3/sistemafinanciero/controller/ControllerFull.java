@@ -39,12 +39,12 @@ public class ControllerFull {
         return "login";
     }
 
-
-    //EMPRESAS
     @GetMapping ({"/index"})
     public String inicio(Model model, @ModelAttribute("mensaje") String mensaje){
         return "index"; //Llamamos al HTML
     }
+
+    //EMPRESAS
     @GetMapping ({"/","/VerEmpresas"})
     public String viewEmpresas(Model model, @ModelAttribute("mensaje") String mensaje){
         List<Empresa> listaEmpresas=empresaService.getAllEmpresas();
@@ -281,4 +281,5 @@ public class ControllerFull {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
 }
