@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1, user-scalable=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Inicio</title>
+    <link rel="icon" th:href="@{/img/icono.png}">
+    <title>Empleados</title>
 </head>
 <body>
 <!-- Inicio de contenedor principal -->
@@ -14,7 +15,7 @@
         <!-- Inicio de panel de la izquierda -->
         <div class="col-3 align-items-center" style="background-color:#aaa; height: 100vh">
             <!--espacio para logo -->
-            <div class="text-center pt-5 pb-5" style="height: 300px"><img src="img/logo.png" class="rounded"></div>
+            <div class="text-center pt-5 pb-5" style="height: 300px"><img th:src="@{/img/logo.png}" class="rounded"></div>
             <!--espacio para botones del panel izquierdo-->
             <div class="text-center ps-3 pb-3 d-grid gap-2"><a th:href="@{/VerMovimientos}" class="btn btn-dark">Ingresos y Egresos</a></div>
             <div class="text-center ps-3 pb-3 d-grid gap-2"><a th:href="@{/VerEmpleados}" class="btn btn-dark">Usuarios</a></div>
