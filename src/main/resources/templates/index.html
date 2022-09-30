@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" th:href="@{/img/icono.png}">
+    <title>Sistema de Gestión Empresarial</title>
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
+
+</head>
+<body>
+<main>
+<div class="modal-dialog text-center">
+    <div class="main-section">
+        <div class="modal-content pb-3 d-grid gap-2 py-5">
+            <div class="col-12 user-img">
+                <img src="static/img/user.png" th:src="@{/img/user1.png}"/>
+                <h1 class="display-5 fw-bold py-2">Sistema de Gestión Empresarial</h1>
+                <p class="pb-3 d-grid gap-2 py-3">Esta aplicación permite a sus Usuarios almacenar, visualizar y actualizar los datos y movimientos
+                    financieros de empresas y empleados de forma sencilla, clara y organizada.</p>
+                <hr>
+            </div>
+            <div sec:authorize="!isAuthenticated()">
+                <h3>Binvenido/a</h3>
+                <a th:href="@{/oauth2/authorization/auth0}" class="btn btn-primary btn-lg px-4 gap-2">Iniciar sesión</a>
+            </div>
+            <div class="py-3" sec:authorize="isAuthenticated()">
+                <a th:href="@{/home}" class="btn btn-primary btn-lg px-4 gap-2">Ir a la aplicación</a>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+</body>
+</html>
