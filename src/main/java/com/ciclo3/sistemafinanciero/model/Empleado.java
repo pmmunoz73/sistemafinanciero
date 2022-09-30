@@ -25,11 +25,14 @@ public class Empleado {
     @UpdateTimestamp
     @Column(name = "fecha_actualizacion")
     private LocalDate fechaActualizacion;
+    @Column(name = "auth0Id", unique = true)
+    private String auth0Id;
 
     public Empleado() {
     }
 
-    public Empleado(String nombre, String correo, Empresa empresa, String rol, String password, Boolean estado, LocalDate fechaCreacion, LocalDate fechaActualizacion) {
+    public Empleado(String nombre, String correo, Empresa empresa, String rol, String password, Boolean estado,
+                    LocalDate fechaCreacion, LocalDate fechaActualizacion, String auth0Id) {
         this.nombre = nombre;
         this.correo = correo;
         this.empresa = empresa;
@@ -38,6 +41,7 @@ public class Empleado {
         this.estado = estado;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
+        this.auth0Id = auth0Id;
     }
 
     public Boolean getEstado() {
@@ -110,5 +114,13 @@ public class Empleado {
 
     public void setFechaActualizacion(LocalDate fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public String getAuth0Id() {
+        return auth0Id;
+    }
+
+    public void setAuth0Id(String auth0Id) {
+        this.auth0Id = auth0Id;
     }
 }

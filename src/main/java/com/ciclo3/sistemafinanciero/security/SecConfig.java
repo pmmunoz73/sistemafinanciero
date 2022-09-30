@@ -1,3 +1,4 @@
+/*
 package com.ciclo3.sistemafinanciero.security;
 
 import com.ciclo3.sistemafinanciero.handler.CustomSuccessHandler;
@@ -46,4 +47,5 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/doLogout");
     }
 }
+*/
 

@@ -50,7 +50,7 @@
 
             <div class="container">
                 <p th:inline="text" class="text-right">User: [[${#httpServletRequest.remoteUser}]]</p>
-                <form  style="float:right" th:action="@{/doLogout}" method="post">
+                <form  style="float:right" th:action="@{/logout}" method="post">
                     <input type="submit" value="Cerrar sesión" />
                 </form>
                 <h1> Lista de Empresas</h1>

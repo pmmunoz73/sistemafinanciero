@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -49,6 +50,27 @@ public class EmpleadoService {
             return false;
         }
         return true;
+    }
+
+    public Empleado createUser(Empleado newEmpleado) {
+        return this.empleadoRepository.save(newEmpleado);
+    }
+
+    public Empleado findUserBycorreo(String correo) {
+        return this.empleadoRepository.findBycorreo(correo);
+    }
+    public Empleado getOrCreateUser(Map<String, Object> userData){
+        String correo = (String) userData.get("correo");
+        Empleado empleado = findUserBycorreo(correo);
+        if (empleado == null) {
+            String name = (String) userData.get("name");
+            String image = (String) userData.get("picture");
+            String auth0Id = (String) userData.get("sub");
+
+            Empleado newEmpleado = new Empleado();
+            return createUser(newEmpleado);
+        }
+        return empleado;
     }
 
 }
